@@ -59,6 +59,45 @@ function setupFilterListeners() {
     });
 }
 
+// Função para exibir as transações
+function renderTransactions(transactions) {
+    const transactionsList = document.getElementById('transactionsList');
+    transactionsList.innerHTML = ''; // Limpa antes de renderizar
+
+    if (transactions.length === 0) {
+        transactionsList.innerHTML = '<p class="text-center text-gray-500">Nenhuma transação encontrada.</p>';
+        return;
+    }
+
+    transactions.forEach(transaction => {
+        const div = document.createElement('div');
+        div.className = 'flex justify-between items-center border-b py-2';
+
+        div.innerHTML = `
+        <div class="flex items-center gap-2">
+            <input type="checkbox" ${transaction.pago ? 'checked' : ''} disabled>
+            <span>${transaction.nome}</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="text-blue-500 text-sm">Editar</button>
+            <button class="text-red-500 text-sm">Excluir</button>
+        </div>
+        `;
+
+        transactionsList.appendChild(div);
+    });
+}
+
+// Teste de exibição ao carregar a página
+const exemploTransacoes = [
+    { id: 1, nome: 'Conta de Luz', pago: false },
+    { id: 2, nome: 'Aluguel', pago: true },
+    { id: 3, nome: 'Internet', pago: false },
+  ];
+  
+  // Renderizar ao iniciar
+  renderTransactions(exemploTransacoes);
+
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');
     const greeting = document.getElementById('greeting');
