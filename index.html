@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Planilha</h1>
+      <p id="currentYear">2023</p>
+    </div>
+    <div>
+      <p id="userName">Olá, ...</p>
+      <button id="logout">Sair</button>
+    </div>
+  </header>
+
+  <h1 id="greeting">Carregando...</h1>
+
+  <section class="p-4">
+    <div class="flex gap-4">
+      <select id="monthSelect">
+        <!-- Vamos preencher pelo JS -->
+      </select>
+  
+      <select id="yearSelect">
+        <!-- Vamos preencher pelo JS -->
+      </select>
+    </div>
+  </section>
+  
+  <hr />
+
+  <script type="module" src="/js/index.js"></script>
+</body>
+</html>
