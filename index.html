@@ -3,6 +3,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./style.css">
   <title>Dashboard</title>
 </head>
 <body>
@@ -38,6 +39,36 @@
   </section>
   
   <hr />
+
+  <div class="flex justify-end p-4">
+    <button id="btnNovaTransacao" class="bg-green-600 text-white px-4 py-2 rounded">
+      + Nova Transação
+    </button>
+  </div>
+
+  <!-- Modal de Nova Transação -->
+  <div id="modalTransacao" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <h2 class="text-xl mb-4 font-semibold">Nova Transação</h2>
+      <form id="formTransacao" class="flex flex-col gap-3">
+        <input
+          type="text"
+          id="nomeTransacao"
+          placeholder="Nome da transação"
+          class="border p-2 rounded"
+          required
+        />
+        <label class="flex items-center gap-2">
+          <input type="checkbox" id="pagoTransacao" />
+          Marcada como paga
+        </label>
+        <div class="flex justify-end gap-2 mt-4">
+          <button type="button" id="cancelarModal" class="text-gray-500">Cancelar</button>
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="/js/index.js"></script>
 </body>

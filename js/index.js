@@ -79,8 +79,8 @@ function renderTransactions(transactions) {
             <span>${transaction.nome}</span>
         </div>
         <div class="flex items-center gap-2">
-            <button class="text-blue-500 text-sm">Editar</button>
-            <button class="text-red-500 text-sm">Excluir</button>
+            <button class="text-blue-500 text-sm" data-id=${transaction.id} data-action="edit">Editar</button>
+            <button class="text-red-500 text-sm" data-id=${transaction.id} data-action="delete">Excluir</button>
         </div>
         `;
 
@@ -93,10 +93,36 @@ const exemploTransacoes = [
     { id: 1, nome: 'Conta de Luz', pago: false },
     { id: 2, nome: 'Aluguel', pago: true },
     { id: 3, nome: 'Internet', pago: false },
-  ];
-  
+    { id: 4, nome: 'Agua', pago: false },
+    { id: 5, nome: 'Prestação', pago: false },
+    { id: 6, nome: 'Financiamento', pago: false },
+];
+
   // Renderizar ao iniciar
-  renderTransactions(exemploTransacoes);
+renderTransactions(exemploTransacoes);
+
+function setupTransactionButton() {
+    const transactionsList = document.getElementById('transactionsList');
+
+    transactionsList.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-action]');
+
+        if (button) {
+            const action = button.getAttribute('data-action');
+            const id = button.getAttribute('data-id');
+            console.log("cheguei aqui");
+
+            if (action === 'edit') {
+                alert(`Editar transação ID: ${id}`);
+            } else if (action === 'delete') {
+                alert(`Excluir transação ID: ${id}`);
+            }
+        }
+    });
+}
+
+// logica para os butoes
+setupTransactionButton();
 
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('token');
