@@ -3,15 +3,25 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
     <title>Login</title>
 </head>
-<body>
-    <h1>Login</h1>
-    <form id="loginForm">
-        <input type="email" id="email" placeholder="E-mail" required />
-        <input type="password" id="password" placeholder="Senha" required />
-        <button type="submit">Entrar</button>
-    </form>
+<body class="px-6">
+    <div class="flex flex-col items-center justify-center h-screen">
+        
+        <img class="sm:w-[200px] pb-5" src="./public/iconCat.svg" alt="icone da aplicação, um porquinho com metricas desenhada no corpo dele.">
+        
+        <div class="border p-4 rounded-md">
+            <h2 class="text-center uppercase font-bold">Login</h2>
+            <form id="loginForm" class="flex flex-col gap-3">
+                <input class="border border-black p-1 rounded-md" type="email" id="email" placeholder="E-mail" required />
+                <input class="border border-black p-1 rounded-md" type="password" id="password" placeholder="Senha" required />
+                <button class="bg-green-600 text-white px-4 py-2 rounded-md" type="submit">Entrar</button>
+                <p>Ainda não tem cadastro. <a href="./register.html" class="text-orange-500">Registre-se aqui.</a></p>
+            </form>
+        </div>
+    </div>
+    
 
     <script type="module" src="/js/login.js"></script>
 </body>
