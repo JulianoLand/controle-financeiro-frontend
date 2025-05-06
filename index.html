@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>Dashboard</title>
 </head>
 <body>
   <header>
-    <div>
+    <div class="flex justify-between items-center px-4 pt-6">
       <h1>Planilha</h1>
-      <p id="currentYear">2023</p>
+      <div class="flex items-center gap-2">
+        <p id="userName">Bem-vindo, ...</p>
+        <img src="./public/iconUser.svg" alt="icone Usuário">
+      </div>
     </div>
     <div>
-      <p id="userName">Olá, ...</p>
+      <p id="currentYear">2023</p>
       <button id="logout">Sair</button>
     </div>
   </header>
@@ -47,7 +53,7 @@
   </div>
 
   <!-- Modal de Nova Transação -->
-  <div id="modalTransacao" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center hidden">
+  <div id="modalTransacao" class="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
     <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
       <h2 class="text-xl mb-4 font-semibold">Nova Transação</h2>
       <form id="formTransacao" class="flex flex-col gap-3">
